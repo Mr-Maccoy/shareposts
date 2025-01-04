@@ -26,6 +26,7 @@ class Pages extends Controller{
         $data=[
             'title' => 'About Us',
             'description'=>'App to share posts with other users'
+            'commit' =>'Updates submitted daily in github'
 
         ];
         $this->view('pages/about', $data);
