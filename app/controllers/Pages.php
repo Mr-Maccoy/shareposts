@@ -25,7 +25,7 @@ class Pages extends Controller{
     public function about(){
         $data=[
             'title' => 'About Us',
-            'description'=>'App to share posts with other users'
+            'description'=>'App to share posts with other users',
             'commit' =>'Updates submitted daily in github'
 
         ];
