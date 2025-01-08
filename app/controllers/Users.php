@@ -4,7 +4,7 @@ class Users extends Controller{
         $this->userModel = $this->model('User');
 
     }
-
+   
     public function register(){
         //Check for posts
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -70,7 +70,17 @@ class Users extends Controller{
             if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
                 // Validated
 
-                die('SUCCESS');
+                // Hash Password
+                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                // Register User
+
+                if($this->userModel->register($data)){
+                    redirect('/users/login');
+
+                }else{
+                    die('Something went wrong');
+                }
             } else {
                 // Load view with errors
                 $this ->view('users/register', $data);

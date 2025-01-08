@@ -65,7 +65,7 @@
 
         }
 
-        $this ->stmt->bindValue($param, $value. $type);
+        $this ->stmt->bindValue($param, $value, $type);
 
     }
 
